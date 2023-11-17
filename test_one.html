@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test_one_style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="test_one_script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!--QUESTION 1-->
+    <div class="page_wrapper qst1_wrapper">
+        <div class="question_container">
+            <div class="question_text">Что означает понятие Иммерсивный/Immersive?</div>
+            <div class="answers_amount">Выберите 1 ответ</div>
+        </div>
+        <div class="answers_container">
+            <div class="answer_item" id="1">Погружающий зрителя</div>
+            <div class="answer_item" id="2">Ритмичный, динамичный</div>
+            <div class="answer_item" id="3">Обрамляющий</div>
+            <div class="answer_item" id="4">Осознанный, структурный</div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button">Далее</button>
+        </div>
+    </div>
+    <!--QUESTION 1-->
+
+        <!--QUESTION 2-->
+        <div class="page_wrapper qst2_wrapper">
+            <div class="question_container">
+                <div class="question_text">В чём важнейшее отличие восприятия глазами от камеры?</div>
+                <div class="answers_amount">Выберите 1 ответ</div>
+            </div>
+            <div class="answers_container">
+                <div class="answer_item" id="5">FOV</div>
+                <div class="answer_item" id="6">Различимость/разрешение</div>
+                <div class="answer_item" id="7">Проекция света</div>
+                <div class="answer_item" id="8">Количество приёмников информации</div>
+            </div>
+            <div class="next_question_container">
+                <button class="next_question_button">Далее</button>
+            </div>
+        </div>
+        <!--QUESTION 2-->
+
+            <!--QUESTION 3-->
+    <div class="page_wrapper qst3_wrapper">
+        <div class="question_container">
+            <div class="question_text">Самое критичное ограничение живописи?</div>
+            <div class="answers_amount">Выберите 1 ответ</div>
+        </div>
+        <div class="answers_container">
+            <div class="answer_item" id="9">Детализация</div>
+            <div class="answer_item" id="10">Отсутствие параллаксов</div>
+            <div class="answer_item" id="11">Сложность реализации</div>
+            <div class="answer_item" id="12">Количество слоёв изображения</div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button">Далее</button>
+        </div>
+    </div>
+    <!--QUESTION 3-->
+
+        <!--QUESTION 4-->
+        <div class="page_wrapper qst4_wrapper">
+            <div class="question_container">
+                <div class="question_text">Эффект Иммерсивный в визуале это?</div>
+                <div class="answers_amount">Выберите 1 ответ</div>
+            </div>
+            <div class="answers_container">
+                <div class="answer_item" id="13">Глубокая лёгкость</div>
+                <div class="answer_item" id="14">Наличие ракурсности</div>
+                <div class="answer_item" id="15">Использование дымки</div>
+                <div class="answer_item" id="16">Контрастность</div>
+            </div>
+            <div class="next_question_container">
+                <button class="next_question_button">Далее</button>
+            </div>
+        </div>
+        <!--QUESTION 4-->
+
+            <!--QUESTION 5-->
+    <div class="page_wrapper qst5_wrapper">
+        <div class="question_container">
+            <div class="question_text">Главная цель?</div>
+            <div class="answers_amount">Выберите несколько ответов</div>
+        </div>
+        <div class="answers_container">
+            <div class="answer_item" id="17">Сократить время на восприятие информации в кадре</div>
+            <div class="answer_item" id="18">Максимально подчеркнуть глубину</div>
+            <div class="answer_item" id="19">Использование дымки</div>
+            <div class="answer_item" id="20">Контрастность</div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button">Узнать результат</button>
+        </div>
+    </div>
+    <!--QUESTION 5-->
+
+    <!----TEST DONE SUCCESS-->
+    <div class="page_wrapper success_wrapper">
+        <div class="question_container">
+            <div class="question_text">Тест успешно пройден!</div>
+        </div>
+        <div class="answers_container">
+            <div class="gif_container">
+            </div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button test_done_button">Вернуться к боту</button>
+        </div>
+    </div>
+    <!----TEST DONE SUCCESS-->
+
+    <!------TEST FAIL------->
+    <div class="page_wrapper fail_wrapper">
+        <div class="question_container">
+            <div class="question_text">К сожалению тест не сдан</div>
+        </div>
+        <div class="answers_container">
+            <div class="gif_container fail_gif">
+            </div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button" id="restart">Попробовать ещё раз</button>
+        </div>
+    </div>
+    <!------TEST FAIL------->
+    
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test_one_style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="test_two_script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!--QUESTION 1-->
+    <div class="page_wrapper qst1_wrapper">
+        <div class="question_container">
+            <div class="question_text">Цель художника другими словами?</div>
+            <div class="answers_amount">Выберите несколько ответоы</div>
+        </div>
+        <div class="answers_container">
+            <div class="answer_item" id="1">Упростить восприятие</div>
+            <div class="answer_item" id="2">Углубить картинку</div>
+            <div class="answer_item" id="3">Насытить точками внимания (3 и более)</div>
+            <div class="answer_item" id="4">Опираться на своё настроение</div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button">Далее</button>
+        </div>
+    </div>
+    <!--QUESTION 1-->
+
+        <!--QUESTION 2-->
+        <div class="page_wrapper qst2_wrapper">
+            <div class="question_container">
+                <div class="question_text">Главный инструмент акцентности?</div>
+                <div class="answers_amount">Выберите 1 ответ</div>
+            </div>
+            <div class="answers_container">
+                <div class="answer_item" id="5">Детализация</div>
+                <div class="answer_item" id="6">Свет</div>
+                <div class="answer_item" id="7">Дым</div>
+                <div class="answer_item" id="8">Глубина резкости</div>
+            </div>
+            <div class="next_question_container">
+                <button class="next_question_button">Далее</button>
+            </div>
+        </div>
+        <!--QUESTION 2-->
+
+            <!--QUESTION 3-->
+    <div class="page_wrapper qst3_wrapper">
+        <div class="question_container">
+            <div class="question_text">Функция света?</div>
+            <div class="answers_amount">Выберите несколько ответов</div>
+        </div>
+        <div class="answers_container">
+            <div class="answer_item" id="9">Акценты</div>
+            <div class="answer_item" id="10">Подчёркивание объёмности геометрии</div>
+            <div class="answer_item" id="11">Дефицит пространства</div>
+            <div class="answer_item" id="12">Глубина резкости</div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button">Узнать результат</button>
+        </div>
+    </div>
+    <!--QUESTION 3-->
+
+
+    <!----TEST DONE SUCCESS-->
+    <div class="page_wrapper success_wrapper">
+        <div class="question_container">
+            <div class="question_text">Тест успешно пройден!</div>
+        </div>
+        <div class="answers_container">
+            <div class="gif_container">
+            </div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button test_done_button">Вернуться к боту</button>
+        </div>
+    </div>
+    <!----TEST DONE SUCCESS-->
+
+    <!------TEST FAIL------->
+    <div class="page_wrapper fail_wrapper">
+        <div class="question_container">
+            <div class="question_text">К сожалению тест не сдан</div>
+        </div>
+        <div class="answers_container">
+            <div class="gif_container fail_gif">
+            </div>
+        </div>
+        <div class="next_question_container">
+            <button class="next_question_button" id="restart">Попробовать ещё раз</button>
+        </div>
+    </div>
+    <!------TEST FAIL------->
+    
+
+</body>
+</html>
