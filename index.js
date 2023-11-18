@@ -121,12 +121,13 @@ async function findUserPrimaryPayment(userEmail) {
 app.post('/webhook', async (req, res) => {
     const webhookKeyFromHeaders = req.headers['webhook-key'];
   
-    if (webhookKeyFromHeaders !== vars.STORED_API_KEY) {
+    if (webhookKeyFromHeaders !== "9187CC74AD93C42A2A101E147095919A093F07CE334638BABBD620B21F089A46") {
       console.error("Invalid webhook key.");
       return res.status(401).send("Invalid webhook key.");
     } else {
       const webhookData = req.body;
       console.log(webhookData);
+      console.log("-----------------");
       const userName = webhookData.customer_name
       const userPhone = webhookData.customer_phone
       const userEmail = webhookData.customer_email
