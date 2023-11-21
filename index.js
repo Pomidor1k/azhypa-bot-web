@@ -77,7 +77,8 @@ app.post("/check-user-primary-payment", async (req, res) => {
                     userEmail: clearedEmail,
                     userPhone: data.userPhone,
                     userName: data.userName,
-                    paymentPrice: data.paymentPrice
+                    paymentPrice: data.paymentPrice,
+                    productId: data.productId
                 }
             })
         }
@@ -131,10 +132,11 @@ app.post('/webhook', async (req, res) => {
       const userName = webhookData.customer_name
       const userPhone = webhookData.customer_phone
       const userEmail = webhookData.customer_email
+      const productId = webhookData.product_id
       console.log(userEmail);
       const paymentPrice = webhookData.total_amount
   
-      await addUserAfterPaymentToFirestore(`${userEmail}`, `${userName}`, `${userPhone}`, `${paymentPrice}`)
+      await addUserAfterPaymentToFirestore(`${userEmail}`, `${userName}`, `${userPhone}`, `${paymentPrice}`, `${product_id}`)
   
   
       res.status(200).send("Webhook processed successfully.");
@@ -142,7 +144,7 @@ app.post('/webhook', async (req, res) => {
 });
 /*------------WEBHOOK------------*/
 //add user to firestore after payment
-async function addUserAfterPaymentToFirestore(userEmail, userName, userPhone, paymentPrice) {
+async function addUserAfterPaymentToFirestore(userEmail, userName, userPhone, paymentPrice, productId) {
     const db = admin.firestore();
   
     try {
@@ -154,6 +156,7 @@ async function addUserAfterPaymentToFirestore(userEmail, userName, userPhone, pa
         userName: userName,
         userPhone: userPhone,
         paymentPrice: paymentPrice,
+        productId: productId
       });
   
       console.log(`Пользователь успешно добавлен в Firestore: ${userEmail}`);

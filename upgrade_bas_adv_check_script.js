@@ -61,6 +61,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                     webAppType: "checkUpgradeBasToAdvWebApp",
                     userEmail: data.data.userEmail,
                     paymentPrice: data.data.paymentPrice,
+                    productId: data.data.productId
                 })
 
                 tg.sendData(dataToSend)
