@@ -136,7 +136,7 @@ app.post('/webhook', async (req, res) => {
       console.log(userEmail);
       const paymentPrice = webhookData.total_amount
   
-      await addUserAfterPaymentToFirestore(`${userEmail}`, `${userName}`, `${userPhone}`, `${paymentPrice}`, `${product_id}`)
+      await addUserAfterPaymentToFirestore(`${userEmail}`, `${userName}`, `${userPhone}`, `${paymentPrice}`, `${productId}`)
   
   
       res.status(200).send("Webhook processed successfully.");
