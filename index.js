@@ -121,7 +121,7 @@ async function findUserPrimaryPayment(userEmail) {
 /*------------WEBHOOK------------*/
 app.post('/webhook', async (req, res) => {
     const webhookKeyFromHeaders = req.headers['webhook-key'];
-  
+    
     if (webhookKeyFromHeaders !== "9187CC74AD93C42A2A101E147095919A093F07CE334638BABBD620B21F089A46") {
       console.error("Invalid webhook key.");
       return res.status(401).send("Invalid webhook key.");
@@ -158,7 +158,7 @@ async function addUserAfterPaymentToFirestore(userEmail, userName, userPhone, pa
         paymentPrice: paymentPrice,
         productId: productId
       });
-  
+      
       console.log(`Пользователь успешно добавлен в Firestore: ${userEmail}`);
       return true;
     } catch (error) {
