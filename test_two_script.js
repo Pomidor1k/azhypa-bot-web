@@ -28,6 +28,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     answerButtons.forEach(button => {
         button.addEventListener('click', async () => {
+
+            tg.HapticFeedback.selectionChanged()
+
             if (questionNumber !== 1 && questionNumber !== 3) {
                 if (!button.classList.contains('item_active')) {
                     resetAllButtonsStyles();
@@ -79,16 +82,20 @@ window.addEventListener('DOMContentLoaded', async () => {
     nextQuestionButton.forEach(button => {
         button.addEventListener('click', async () => {
             if (questionNumber === 1 && userAnswers.answer1.length === 0) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             } else if (questionNumber === 2 && !userAnswers.answer2) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             } else if (questionNumber === 3 && userAnswers.answer3.length === 0) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             }
     
+            tg.HapticFeedback.impactOccurred('soft')
             questionNumber = questionNumber+1
     
     
