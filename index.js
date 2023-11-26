@@ -50,15 +50,6 @@ app.get('/upgrade_bas_pro_check', (req, res) => {
     res.sendFile(__dirname + '/upgrade_bas_pro_check.html');
 });
 
-app.get('/video1/:userId', async (req, res) => {
-    const user = await db.collection("users").doc(req.params.userId).get();
-    if (user.exists) {
-        res.sendFile(__dirname + "/video_one.html");
-    } else {
-        res.status(404).send("User not found");
-    }
-});
-
 /*--------------PAYMENT CHECK PAGE---------------*/
 app.post("/check-user-primary-payment", async (req, res) => {
     const { userEmail } = req.body
@@ -178,8 +169,16 @@ app.post("/getUserRateForVideo", (req, res) => {
 })
 
 
+app.get('/ZjUOfUNFnu/:userId', async (req, res) => {
+    const user = await db.collection("users").doc(req.params.userId).get();
+    if (user.exists) {
+        res.sendFile(__dirname + "/video_one.html");
+    } else {
+        res.status(404).send("User not found");
+    }
+});
 
-app.get("/video2/:userId", async (req, res) => {
+app.get("/QinfOnFiuA/:userId", async (req, res) => {
     const user = await db.collection("users").doc(req.params.userId).get();
     if (user.exists) {
         res.sendFile(__dirname + "/video_two.html");
@@ -188,7 +187,7 @@ app.get("/video2/:userId", async (req, res) => {
     }
 });
 
-app.get("/video3/:userId", async (req, res) => {
+app.get("/unfUFnuduP/:userId", async (req, res) => {
     const user = await db.collection("users").doc(req.params.userId).get();
     if (user.exists) {
         res.sendFile(__dirname + "/video_three.html");
@@ -197,7 +196,7 @@ app.get("/video3/:userId", async (req, res) => {
     }
   });
   
-  app.get("/video4BA/:userId", async (req, res) => {
+  app.get("/bYyhiboBbx/:userId", async (req, res) => {
     const user = await db.collection("users").doc(req.params.userId).get();
     if (user.exists) {
       res.sendFile(__dirname + '/video_four_B_A.html');
@@ -206,7 +205,7 @@ app.get("/video3/:userId", async (req, res) => {
     }
   });
   
-  app.get("/video4BP/:userId", async (req, res) => {
+  app.get("/iuBuogiytf/:userId", async (req, res) => {
     const user = await db.collection("users").doc(req.params.userId).get();
     if (user.exists) {
       res.sendFile(__dirname + '/video_four_B_P.html');
