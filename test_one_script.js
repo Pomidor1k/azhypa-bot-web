@@ -22,11 +22,6 @@ window.addEventListener('DOMContentLoaded', async (ctx) => {
 
     /*----------IMPORTS---------*/
     const answerButtons = document.querySelectorAll('.answer_item')
-    const firstDisplay = document.querySelector('.qst1_wrapper')
-    const secondDisplay = document.querySelector('.qst2_wrapper')
-    const thirdDisplay = document.querySelector('.qst3_wrapper')
-    const fourthDisplay = document.querySelector('.qst4_wrapper')
-    const fifthDisplay = document.querySelector('.qst5_wrapper')
     const nextQuestionButton = document.querySelectorAll('.next_question_button')
     const testPassedButton = document.querySelector('.test_done_button')
     const restartTest = document.querySelector('#restart')
@@ -34,6 +29,9 @@ window.addEventListener('DOMContentLoaded', async (ctx) => {
 
     answerButtons.forEach(button => {
         button.addEventListener('click', async () => {
+
+            tg.HapticFeedback.selectionChanged()
+
             if (questionNumber !== 5) {
                 if (!button.classList.contains('item_active')) {
                     resetAllButtonsStyles();
@@ -89,23 +87,31 @@ window.addEventListener('DOMContentLoaded', async (ctx) => {
 
     nextQuestionButton.forEach(button => {
         button.addEventListener('click', async () => {
+
+
             if (questionNumber === 1 && !userAnswers.answer1) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             } else if (questionNumber === 2 && !userAnswers.answer2) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             } else if (questionNumber === 3 && !userAnswers.answer3) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             } else if (questionNumber === 4 && !userAnswers.answer4) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к следующему вопросу.");
                 return;
             } else if (questionNumber === 5 && userAnswers.answer5.length === 0) {
+                tg.HapticFeedback.notificationOccurred('error')
                 alert("Пожалуйста, выберите ответ перед переходом к результатам.");
                 return;
             }
-    
+            
+            tg.HapticFeedback.impactOccurred('soft')
             questionNumber = questionNumber+1
     
     
