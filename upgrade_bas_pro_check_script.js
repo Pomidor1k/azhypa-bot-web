@@ -50,6 +50,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         .then(response => response.json())
         .then(data => {
             if (data.data === 'error') {
+                tg.HapticFeedback.notificationOccurred('error')
                 checkTitle.classList.remove('animated-element');
                 checkTitle.style.display = 'none'
                 errorTitle.classList.add('animated-element');
@@ -67,6 +68,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 tg.sendData(dataToSend)
 
                 Telegram.WebApp.onEvent('mainButtonClicked', async () => {
+                    tg.HapticFeedback.notificationOccurred('success')
                     tg.close()
                 })
             }

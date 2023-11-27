@@ -3,8 +3,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const input = document.querySelector('.check_email')
     const checkTitle = document.querySelector('.title')
     const errorTitle = document.querySelector('.error_title')
-    const searchDisplay = document.querySelector('.page_wrapper')
-    const successDisplay = document.querySelector('.success_wrapper')
 
     const tg = window.Telegram.WebApp
     if (tg.platform === 'tdesktop') {
@@ -50,6 +48,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         .then(response => response.json())
         .then(data => {
             if (data.data === 'error') {
+                tg.HapticFeedback.notificationOccurred('error')
                 checkTitle.classList.remove('animated-element');
                 checkTitle.style.display = 'none'
                 errorTitle.classList.add('animated-element');
@@ -66,6 +65,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 tg.sendData(dataToSend)
 
                 Telegram.WebApp.onEvent('mainButtonClicked', async () => {
+                    tg.HapticFeedback.notificationOccurred('success')
                     tg.close()
                 })
             }
