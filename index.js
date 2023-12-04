@@ -50,6 +50,11 @@ app.get('/upgrade_bas_pro_check', (req, res) => {
     res.sendFile(__dirname + '/upgrade_bas_pro_check.html');
 });
 
+app.get('/admin', (req, res) => {
+    // Загружаем файл test_one.html
+    res.sendFile(__dirname + '/admin.html');
+});
+
 /*--------------PAYMENT CHECK PAGE---------------*/
 app.post("/check-user-primary-payment", async (req, res) => {
     const { userEmail } = req.body
@@ -244,7 +249,73 @@ async function getUserRate(userId) {
 }
 
 
+app.post("/get_users_admin_info", async (req, res) => {
+    const usersInfo = await getUsersInfo()
+    res.send({
+        data: usersInfo
+    })
+})
+
+
 /*--------------------------STARTING SERVER---------------------------*/
 app.listen(3000, () => {
     console.log('Приложение запущено на порту 3000');
 });
+
+
+
+async function getUsersInfo() {
+    const db = admin.firestore();
+    const usersCollection = db.collection('users');
+  
+    // Получаем все документы из коллекции users
+    const allUsersSnapshot = await usersCollection.get();
+    
+    // Исключаем документы с определенными идентификаторами
+    const filteredUsersSnapshot = allUsersSnapshot.docs.filter(userDoc => {
+      const userId = userDoc.id;
+      return userId !== "689818355" && userId !== "514751965";
+    });
+
+    const totalUsers = filteredUsersSnapshot.length;
+  
+    // Подсчитываем количество пользователей с разными значениями полей
+    let totalPayments = 0;
+    let totalPro = 0;
+    let totalAdvanced = 0;
+    let totalBasic = 0;
+  
+    filteredUsersSnapshot.forEach((userDoc) => {
+      const userData = userDoc.data();
+      
+      // Подсчет totalPayments
+      if (userData.userPayment === true) {
+        totalPayments++;
+      }
+  
+      // Подсчет totalPro, totalAdvanced, totalBasic
+      switch (userData.userRate) {
+        case 'pro':
+          totalPro++;
+          break;
+        case 'advanced':
+          totalAdvanced++;
+          break;
+        case 'basic':
+          totalBasic++;
+          break;
+        // Дополнительные кейсы для других значений userRate, если необходимо
+      }
+    });
+  
+    // Создаем объект с результатами
+    const obj = {
+      totalUsers,
+      totalPayments,
+      totalPro,
+      totalAdvanced,
+      totalBasic
+    };
+  
+    return obj;
+}
